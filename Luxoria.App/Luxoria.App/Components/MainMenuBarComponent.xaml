@@ -6,70 +6,59 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
-    <Grid Background="#1E1E1E" Padding="10,5">
+    
+    <Grid Background="{ThemeResource SystemControlBackgroundBaseMediumBrush}" Padding="10,5">
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Spacing="20">
+
+
             <Button 
-                Content="Home" 
                 Click="Home_Click" 
-                Background="Transparent" 
-                Foreground="White" 
-                FontSize="14" 
-                Padding="8,4" 
-                BorderThickness="0" 
-                Margin="0,0,10,0"/>
+                Style="{StaticResource MenuButtonStyle}">
+                <StackPanel Orientation="Horizontal" Spacing="5">
+                    <SymbolIcon Symbol="Home"/>
+                    <TextBlock Text="Home"/>
+                </StackPanel>
+            </Button>
 
             <Button 
-                Content="Import" 
                 Click="Import_Click" 
-                Background="Transparent" 
-                Foreground="White" 
-                FontSize="14" 
-                Padding="8,4" 
-                BorderThickness="0" 
-                Margin="0,0,10,0"/>
+                Style="{StaticResource MenuButtonStyle}">
+                <StackPanel Orientation="Horizontal" Spacing="5">
+                    <TextBlock Text="Import"/>
+                </StackPanel>
+            </Button>
 
             <Button 
-                Content="Edit" 
                 Click="Edit_Click" 
-                Background="Transparent" 
-                Foreground="White" 
-                FontSize="14" 
-                Padding="8,4" 
-                BorderThickness="0" 
-                Margin="0,0,10,0"/>
+                Style="{StaticResource MenuButtonStyle}">
+                <StackPanel Orientation="Horizontal" Spacing="5">
+                    <TextBlock Text="Edit"/>
+                </StackPanel>
+            </Button>
 
             <Button 
-                Content="Export" 
                 Click="Export_Click" 
-                Background="Transparent" 
-                Foreground="White" 
-                FontSize="14" 
-                Padding="8,4" 
-                BorderThickness="0" 
-                Margin="0,0,10,0"/>
+                Style="{StaticResource MenuButtonStyle}">
+                <StackPanel Orientation="Horizontal" Spacing="5">
+                    <TextBlock Text="Export"/>
+                </StackPanel>
+            </Button>
 
             <Button 
-                Content="Settings" 
-                Background="Transparent"
-                Foreground="White" 
-                FontSize="14" 
-                Padding="8,4" 
-                BorderThickness="0">
-
+                Style="{StaticResource MenuButtonStyle}">
+                <StackPanel Orientation="Horizontal" Spacing="5">
+                    <TextBlock Text="Settings"/>
+                </StackPanel>
                 <Button.Flyout>
                     <MenuFlyout Placement="Bottom">
                         <MenuFlyoutItem 
                             Text="Modules" 
                             Click="Modules_Click"
-                            Background="Transparent"
-                            Foreground="White"
+                            Foreground="{ThemeResource ApplicationForegroundThemeBrush}"
                             FontSize="14" 
-                            Padding="8,4"
-                            BorderThickness="0"/>
+                            Padding="8,4"/>
                     </MenuFlyout>
                 </Button.Flyout>
-
             </Button>
 
         </StackPanel>

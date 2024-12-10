@@ -1,0 +1,93 @@
+<!-- Luxoria.App/NewMainWindow.xaml -->
+<Window
+    x:Class="Luxoria.App.NewMainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Luxoria.App"
+    xmlns:components="using:Luxoria.App.Components"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Luxoria App">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Barre de menu -->
+            <RowDefinition Height="*"/>
+            <!-- Contenu principal -->
+        </Grid.RowDefinitions>
+
+        <!-- Barre de menu -->
+        <components:MainMenuBarComponent Grid.Row="0"/>
+
+        <!-- Contenu principal -->
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!-- Sélection de catégorie -->
+                <RowDefinition Height="*"/>
+                <!-- Panneaux -->
+            </Grid.RowDefinitions>
+
+            <!-- ComboBox pour sélectionner la catégorie -->
+            <ComboBox
+                x:Name="CategoryComboBox"
+                SelectionChanged="CategoryComboBox_SelectionChanged"
+                PlaceholderText="Sélectionnez une catégorie"
+                Width="200"
+                Margin="0,0,0,10"/>
+
+            <!-- Panneaux pour intégrer les modules -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <!-- LeftPanel -->
+                    <ColumnDefinition Width="*"/>
+                    <!-- MainContent -->
+                    <ColumnDefinition Width="200"/>
+                    <!-- RightPanel -->
+                </Grid.ColumnDefinitions>
+
+                <!-- LeftPanel -->
+                <Border x:Name="LeftPanel"
+                        Grid.Column="0"
+                        Background="LightGray"
+                        Padding="10"
+                        CornerRadius="5">
+                    <TextBlock Text="Left Panel" 
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Center"
+                               FontSize="16"
+                               Foreground="DarkGray"/>
+                </Border>
+
+                <!-- MainContent -->
+                <Border x:Name="MainContent"
+                        Grid.Column="1"
+                        Background="White"
+                        Padding="10"
+                        CornerRadius="5">
+                    <TextBlock Text="Main Content" 
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Center"
+                               FontSize="16"
+                               Foreground="DarkGray"/>
+                </Border>
+
+                <!-- RightPanel -->
+                <Border x:Name="RightPanel"
+                        Grid.Column="2"
+                        Background="LightGray"
+                        Padding="10"
+                        CornerRadius="5">
+                    <TextBlock Text="Right Panel" 
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Center"
+                               FontSize="16"
+                               Foreground="DarkGray"/>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

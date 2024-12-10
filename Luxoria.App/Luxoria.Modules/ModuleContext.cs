@@ -1,4 +1,5 @@
-﻿using Luxoria.Modules.Interfaces;
+﻿using System;
+using Luxoria.Modules.Interfaces;
 using Luxoria.Modules.Models;
 
 namespace Luxoria.Modules

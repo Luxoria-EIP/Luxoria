@@ -1,4 +1,6 @@
-﻿namespace Luxoria.Modules.Models;
+﻿using System;
+
+namespace Luxoria.Modules.Models;
 
 /// <summary>
 /// Represents an image with pixel data, dimensions, and format information.

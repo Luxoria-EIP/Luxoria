@@ -1,4 +1,5 @@
 ﻿using Luxoria.Modules.Interfaces;
+using System;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Luxoria.Modules.Models.Events

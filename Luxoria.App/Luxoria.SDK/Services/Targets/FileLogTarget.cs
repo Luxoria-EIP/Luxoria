@@ -1,5 +1,7 @@
 ﻿using Luxoria.SDK.Interfaces;
+using System;
 using System.Diagnostics;
+using System.IO;
 
 namespace Luxoria.SDK.LogTargets;
 

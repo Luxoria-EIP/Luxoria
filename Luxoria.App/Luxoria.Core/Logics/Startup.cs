@@ -41,6 +41,11 @@ namespace Luxoria.Core.Logics
             services.AddSingleton(logger as ILoggerService);
             logger.Log("Logger Service registered successfully !", LOG_SECTION, LogLevel.Info);
 
+            // Register Module Context
+            logger.Log("Registering Module Context...", LOG_SECTION, LogLevel.Info);
+            services.AddSingleton<IModuleContext, ModuleContext>();
+            logger.Log("Logger Service registered successfully !", LOG_SECTION, LogLevel.Info);
+
             logger.Log("Services registered successfully !", LOG_SECTION, LogLevel.Info);
         }
     }

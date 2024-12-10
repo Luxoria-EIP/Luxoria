@@ -1,4 +1,6 @@
 ﻿using Luxoria.SDK.Interfaces;
+using System;
+using System.IO;
 using System.Security.Cryptography;
 
 namespace Luxoria.SDK.Services

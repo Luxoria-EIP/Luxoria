@@ -7,6 +7,7 @@
 
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
+        <RootNamespace>Luxoria.Modueles.Tests</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -28,7 +29,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Luxoria.SDK\Luxoria.SDK.csproj" />
+      <ProjectReference Include="..\Luxoria.Core\Luxoria.Core.old.csproj" />
+      <ProjectReference Include="..\Luxoria.Modules\Luxoria.Modules.old.csproj" />
+      <ProjectReference Include="..\Luxoria.SDK\Luxoria.SDK.old.csproj" />
     </ItemGroup>
 
 </Project>

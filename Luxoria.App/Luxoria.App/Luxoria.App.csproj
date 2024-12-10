@@ -66,6 +66,11 @@
     <ProjectReference Include="..\Luxoria.SDK\Luxoria.SDK.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Page Update="NewMainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="Views\ModuleManagerWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>

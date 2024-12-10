@@ -1,15 +1,14 @@
-ï»¿using Luxoria.Modules.Interfaces;
+using System.Reflection;
+using Luxoria.Modules.Interfaces;
 using Luxoria.Modules.Models.Events;
 using Luxoria.SDK.Interfaces;
 using Luxoria.SDK.Models;
-using System.Diagnostics;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 namespace TestModule1
 {
-    /// <summary>
-    /// A basic module for testing purposes that interacts with the EventBus.
-    /// </summary>
-    public class TestModule1 : IModule
+    public class TestModule1 : IModule, IModuleUIIntegration
     {
         private IEventBus? _eventBus;
         private IModuleContext? _context;
@@ -19,11 +18,10 @@ namespace TestModule1
         public string Description => "Basic module for testing purposes.";
         public string Version => "1.0.1";
 
-        /// <summary>
-        /// Initializes the module with the provided EventBus and ModuleContext.
-        /// </summary>
-        /// <param name="eventBus">The event bus for publishing and subscribing to events.</param>
-        /// <param name="context">The context for managing module-specific data.</param>
+        // IModuleUIIntegration properties
+        public string Category => "Library"; // La catégorie où le module s'intègre
+        public string Region => "MainContent"; // La région de l'interface où le module s'intègre
+
         public void Initialize(IEventBus eventBus, IModuleContext context, ILoggerService logger)
         {
             _eventBus = eventBus;
@@ -43,55 +41,51 @@ namespace TestModule1
             _logger?.Log($"{Name} initialized", "Mods/TestModule1", LogLevel.Info);
         }
 
-        /// <summary>
-        /// Executes the module logic. This can be called to trigger specific actions.
-        /// </summary>
         public void Execute()
         {
             _logger?.Log($"{Name} executed", "Mods/TestModule1", LogLevel.Info);
-            // You can add more logic here if needed
+            // Ajoute plus de logique si nécessaire
         }
 
-        /// <summary>
-        /// Cleans up resources and subscriptions when the module is shut down.
-        /// </summary>
         public void Shutdown()
         {
-            // Unsubscribe from events if necessary to avoid memory leaks
+            // Unsubscribe from events to éviter les fuites de mémoire
             _eventBus?.Unsubscribe<TextInputEvent>(OnTextInputReceived);
 
             _logger?.Log($"{Name} shut down", "Mods/TestModule1", LogLevel.Info);
         }
 
-        /// <summary>
-        /// Handles the TextInputEvent. This method will be called when text input is received.
-        /// </summary>
-        /// <param name="textInputEvent">The event containing the input text.</param>
         private void OnTextInputReceived(TextInputEvent textInputEvent)
         {
-            // Process the input text
+            // Traiter le texte d'entrée
             _logger?.Log($"Received input text: {textInputEvent.Text}", "Mods/TestModule1", LogLevel.Info);
 
-            // Perform some processing logic with the input text (e.g., update an image)
+            // Effectuer une logique de traitement avec le texte d'entrée (par exemple, mettre à jour une image)
             string updatedImagePath = ProcessInputText(textInputEvent.Text);
-            
-            // Publish an event to notify that an image has been updated
+
+            // Publier un événement pour notifier qu'une image a été mise à jour
             _eventBus?.Publish(new ImageUpdatedEvent(updatedImagePath));
         }
 
-        /// <summary>
-        /// Processes the input text and generates an updated image path.
-        /// </summary>
-        /// <param name="inputText">The input text to process.</param>
-        /// <returns>The path to the updated image.</returns>
         private string ProcessInputText(string inputText)
         {
-            // Placeholder logic to simulate image processing based on input text
-            // In a real scenario, this would involve actual image manipulation
+            // Logique fictive pour simuler le traitement d'image basé sur le texte d'entrée
             _logger?.Log($"Processing input text: {inputText}", "Mods/TestModule1", LogLevel.Info);
 
-            // Return a dummy image path for demonstration purposes
+            // Retourner un chemin d'image fictif pour des fins de démonstration
             return "path/to/updated/image.png";
+        }
+
+        // Méthode pour obtenir l'élément UI à insérer dans l'application
+        public UIElement GetView()
+        {
+            return new TextBlock
+            {
+                Text = "Hello from TestModule1!",
+                FontSize = 24,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center
+            };
         }
     }
 }

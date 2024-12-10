@@ -1,4 +1,5 @@
-﻿using Luxoria.SDK.Models;
+﻿using System.Threading.Tasks;
+using Luxoria.SDK.Models;
 
 namespace Luxoria.SDK.Interfaces;
 

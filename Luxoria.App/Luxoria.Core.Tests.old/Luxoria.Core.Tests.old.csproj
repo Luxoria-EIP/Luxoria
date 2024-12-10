@@ -29,9 +29,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Luxoria.Core\Luxoria.Core.csproj" />
-      <ProjectReference Include="..\Luxoria.Modules\Luxoria.Modules.csproj" />
-      <ProjectReference Include="..\Luxoria.SDK\Luxoria.SDK.csproj" />
+      <ProjectReference Include="..\Luxoria.Core\Luxoria.Core.old.csproj" />
+      <ProjectReference Include="..\Luxoria.Modules\Luxoria.Modules.old.csproj" />
+      <ProjectReference Include="..\Luxoria.SDK\Luxoria.SDK.old.csproj" />
     </ItemGroup>
 
 </Project>

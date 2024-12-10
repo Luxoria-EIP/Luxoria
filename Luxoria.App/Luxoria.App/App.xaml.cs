@@ -22,7 +22,7 @@ namespace Luxoria.App
     public partial class App : Application
     {
         public Window Window => m_window;
-        private MainWindow m_window;
+        private NewMainWindow m_window;
 
         private readonly Startup _startup;
         private readonly IHost _host;
@@ -66,6 +66,10 @@ namespace Luxoria.App
             await _logger.LogAsync("Modules loaded. Closing slasph screen...");
             await Task.Delay(500);
 
+            string modulesPath = GetOrCreateModulesDirectory();
+            _moduleService.LoadModules(modulesPath);
+            _moduleService.InitializeModules(new ModuleContext());
+
             // Load modules asynchronously and update the splash screen with the module names
             await LoadModulesAsync(splashScreen);
 
@@ -78,7 +82,7 @@ namespace Luxoria.App
             var eventBus = _host.Services.GetRequiredService<IEventBus>();
             var loggerService = _host.Services.GetRequiredService<ILoggerService>();
 
-            m_window = new MainWindow(eventBus, loggerService);
+            m_window = new NewMainWindow();
             m_window.Activate();
         }
 
